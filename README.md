@@ -1,11 +1,11 @@
-# _Tap-Room_
+# _Tap-Room-redux_
 
-#### _Week 14 independent project for Epicodus_
+#### _Week 15 independent project for Epicodus_
 
 #### By _**Joey Giunta**_
 
 ## Description
-Uses react-create-app; allows the user to create and view kegs of drinks, and track pints for each
+Uses react-create-app; allows the user to create and view kegs of drinks, and track pints for each. This time with redux!
 
 ## Prerequisites
 
@@ -40,6 +40,7 @@ Joseph Giunta <giuntajc@comcast.net>
 - CSS
 - Javascript
 - React
+- Redux
 - Git
 
 ### License
