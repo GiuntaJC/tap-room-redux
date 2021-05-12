@@ -1,0 +1,1 @@
+The rest of Friday after the last tap-room (no Redux) commit was spent reading up on Redux

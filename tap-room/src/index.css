@@ -1,0 +1,12 @@
+.kegClickable {
+  color: blue;
+  text-decoration: underline;
+  border: solid black;
+  border-width: 1px;
+  padding-left: 20px;
+}
+
+.kegClickable:hover, .kegClickable:active {
+  color: blueviolet;
+  background-color: whitesmoke;
+}
