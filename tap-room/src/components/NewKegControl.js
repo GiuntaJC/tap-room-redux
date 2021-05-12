@@ -2,13 +2,13 @@ import React from 'react';
 import KegList from './KegList';
 import NewKeg from './NewKeg'
 import KegDetail from './KegDetail'
+import { connect } from 'react-redux';
 
 class NewKegControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      masterKegList: [],
       selectedKeg: null
     };
   }
@@ -27,11 +27,20 @@ class NewKegControl extends React.Component {
   }
 
   handleAddingNewKegs = (newKeg) => {
-    const newKegList = this.state.masterKegList.concat(newKeg);
-    this.setState({
-      masterKegList: newKegList,
-      formVisibleOnPage: false
-    })
+    const { dispatch } = this.props;
+    const { name, brand, quantityLeft, pricePerPint, proof, id } = newKeg;
+    const action = {
+      type: 'ADD_KEG',
+      name: name,
+      brand: brand,
+      quantityLeft: quantityLeft,
+      pricePerPint: pricePerPint,
+      proof: proof,
+      id: id
+    };
+
+    dispatch(action);
+    this.setState({formVisibleOnPage: false});
   }
 
   handleSelectKeg = (id) => {
@@ -95,5 +104,7 @@ class NewKegControl extends React.Component {
     )
   }
 }
+
+NewKegControl = connect()(NewKegControl);
 
 export default NewKegControl;
