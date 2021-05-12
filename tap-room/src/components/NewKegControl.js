@@ -3,6 +3,7 @@ import KegList from './KegList';
 import NewKeg from './NewKeg'
 import KegDetail from './KegDetail'
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class NewKegControl extends React.Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class NewKegControl extends React.Component {
   }
 
   handleSelectKeg = (id) => {
-    const selectedKeg = this.state.masterKegList.filter(
+    const selectedKeg = this.props.masterKegList.filter(
       (keg) => keg.id === id
     )[0]
     this.setState({ selectedKeg: selectedKeg })
@@ -88,7 +89,7 @@ class NewKegControl extends React.Component {
     } else {
       currentVisibleState = (
         <KegList
-          kegList = {this.state.masterKegList}
+          kegList = {this.props.masterKegList}
           onKegSelection = {this.handleSelectKeg}
         />
       )
@@ -105,6 +106,16 @@ class NewKegControl extends React.Component {
   }
 }
 
-NewKegControl = connect()(NewKegControl);
+NewKegControl.propTypes = {
+  masterKegList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    masterKegList: state
+  }
+}
+
+NewKegControl = connect(mapStateToProps)(NewKegControl);
 
 export default NewKegControl;
